@@ -1,0 +1,35 @@
+<div class="loginform">
+    <h1>Happy to See You Again!!</h1>
+
+
+    <form [formGroup]="loginForm" (submit)="onSubmit ()">
+
+        <div class="form-group">
+            <label for="mail">Email address</label> <input formControlName="email" type="email" class="form-control" id="mail" name="mail" placeholder="Enter email" (change)="checkUserExist()">
+            <div *ngIf="loginForm.controls.email.errors && loginForm.controls.email.dirty || !mailExist  ">
+                <small class="text-danger" *ngIf="!loginForm.controls.email.required && !loginForm.controls.email.value"> Please Enter your Email Adress </small>
+                <small class="text-danger" *ngIf="!mailExist && loginForm.controls.email.value"> Sorry your Email doesn't exist , please Signup </small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password</label> <input formControlName="password" type="password" class="form-control" id="password" placeholder="Enter your Password" name="password">
+            <div *ngIf="loginForm.controls.password.errors && loginForm.controls.password.dirty">
+                <small class="text-danger" *ngIf="loginForm.controls.password.errors.required"> Please Enter your Password </small>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary"> Login</button>
+
+
+    </form>
+
+
+    <button class="btn btn-outline-success" routerLink="/cinephilia/signup">you want to Signup Maybe ? </button>
+
+    <button class="facebookLogin" (click)="logInWithFB()"> Login With Facebook </button>
+    <div *ngIf="!isSignup" style="color : red">
+        Mail doesn't Exist , Please Signup .
+    </div>
+
+</div>

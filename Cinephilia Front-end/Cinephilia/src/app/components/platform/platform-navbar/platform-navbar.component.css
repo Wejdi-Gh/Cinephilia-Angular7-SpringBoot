@@ -1,0 +1,70 @@
+.navbar {
+    background-color: #040318;
+    display: flex;
+    justify-content: space-between;
+    color: aliceblue;
+    position: fixed;
+    width: 100vw;
+    top: 0;
+    z-index: 99999;
+}
+
+.navbar a {
+    color: aliceblue;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px;
+}
+
+.navbar-collapse {
+    flex-grow: 0;
+}
+
+.glow {
+    font-size: 50px;
+    color: #fff;
+    text-align: center;
+    -webkit-animation: glow 1s ease-in-out infinite alternate;
+    -moz-animation: glow 1s ease-in-out infinite alternate;
+    animation: glow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+    from {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+    }
+    to {
+        text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+    }
+}
+
+.home-root {
+    text-decoration: none;
+}
+
+.navbar .active {
+    color: #a7222b;
+}
+
+.navbar-toggler {
+    border: 1px solid #f8f9fa;
+}
+
+.fa-bars {
+    color: white;
+}
+
+.fa-sign-out-alt {
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.fa-sign-out-alt:hover {
+    color: rgba(255, 255, 0, 0.705);
+}
+
+.form-control {
+    width: 300px;
+    display: flex;
+    justify-content: center;
+}

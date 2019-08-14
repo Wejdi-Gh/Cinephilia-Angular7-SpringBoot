@@ -1,0 +1,27 @@
+<div class="film-list">
+    <div class="card" *ngFor="let movie of movies | filterPipe : sharedDataServiceService.shearchData">
+        <img src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}" class="card-img-top" alt="..." />
+        <div class="card-body">
+            <h6 class="card-title"> {{movie.title}} </h6>
+            <span class="rate-label">  <i class="fas fa-star fa-1x faa-pulse animated isyellow" ></i>  Vote Rating : <span class="rate"> {{movie.vote_average}}</span> </span>
+            <p> {{movie.overview}} </p>
+            <a class="btn btn-warning" href="https://www.themoviedb.org/movie/{{movie.id}}" target="blank"> See More </a>
+
+        </div>
+    </div>
+</div>
+
+<div class="prevnext">
+
+    <div class="loadmore">
+        <i class="fas fa-angle-double-left" (click)="previousPage()"></i>
+        <input type="button" value="Previous" class="next" (click)="previousPage()" />
+    </div>
+
+
+    <div class="loadmore">
+        <input type="button" value="Next" class="next" (click)="nextPage()" />
+        <i class="fas fa-angle-double-right" (click)="nextPage()"> </i>
+    </div>
+
+</div>

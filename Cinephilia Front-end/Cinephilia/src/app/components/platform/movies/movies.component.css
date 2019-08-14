@@ -1,0 +1,114 @@
+/* card */
+
+.fa-star {
+    color: rgb(228, 228, 25);
+}
+
+.card {
+    width: 300px;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    box-shadow: 0 0 5px 0px #d6d0d0;
+    margin-right: 7px;
+    margin-left: 7px;
+}
+
+.card img {
+    height: 300px;
+}
+
+.card-title {
+    color: black;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 250px;
+}
+
+.card-body a {
+    width: 150px;
+    font-weight: bold;
+}
+
+div.card-body a:hover {
+    color: red;
+}
+
+.card-body p {
+    overflow-y: hidden;
+    text-align: justify;
+    font-size: 13px;
+    padding: 2px;
+}
+
+.card-body p:hover {
+    overflow-y: auto;
+}
+
+.card-body .heart {
+    margin-bottom: 10px;
+}
+
+.rate-label {
+    font-weight: bold;
+    color: #E4E419;
+}
+
+.rate {
+    color: black;
+}
+
+h6 {
+    text-align: center;
+}
+
+
+/* card */
+
+.film-list {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 120px;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+.next {
+    background-color: #040318;
+    color: #a7222b;
+    border: 0px transparent;
+    box-align: middle;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.next:hover,
+.fa-angle-double-right:hover {
+    color: #b15057;
+}
+
+.fa-angle-double-right,
+.fa-angle-double-left {
+    cursor: pointer;
+    color: #a7222b;
+}
+
+.loadmore {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    padding: 10px;
+}
+
+.prevnext {
+    width: 90vw;
+    display: flex;
+    justify-content: center;
+}

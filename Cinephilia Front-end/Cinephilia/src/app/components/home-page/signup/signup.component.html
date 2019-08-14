@@ -1,0 +1,117 @@
+<div class="signup-page">
+    <h1> Sign Up and be a CinePhile </h1>
+
+    <form [formGroup]="signupForm" (submit)="signup()">
+        <div class="form-row">
+            <div class="col-md-12 ">
+                <label for="firstname">First name *</label>
+                <input type="text" [ngClass]="[!signupForm.controls.firstname.value ? 'form-control' :!signupForm.controls.firstname.errors ? 'form-control is-valid': 'form-control is-invalid']" id="firstname" placeholder="Please Enter your First name" name="firstname"
+                    value="" formControlName="firstname">
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+                <div *ngIf="signupForm.controls.firstname.required" class="invalid-feedback">
+                    required
+                </div>
+                <div *ngIf="!signupForm.controls.firstname.maxlength || !signupForm.controls.firstname.pattern" class="invalid-feedback">
+                    First Name must have maximum 20 characters
+                </div>
+            </div>
+
+        </div>
+        <div class="form-row">
+            <div class="col-md-12 ">
+                <label for="lastname">Last name *</label>
+                <input type="text" [ngClass]="[!signupForm.controls.lastname.value ? 'form-control' :!signupForm.controls.lastname.errors ? 'form-control is-valid': 'form-control is-invalid']" id="lastname" placeholder="Please Enter your Last name" name="lastname" value=""
+                    formControlName="lastname">
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+                <div *ngIf="signupForm.controls.lastname.required" class="invalid-feedback">
+                    required
+                </div>
+                <div *ngIf="!signupForm.controls.lastname.maxlength || !signupForm.controls.lastname.pattern" class="invalid-feedback">
+                    Last Name must have maximum 20 characters
+                </div>
+            </div>
+
+        </div>
+        <div class="form-row">
+            <div class="col-md-12 ">
+                <label for="email">Email *</label>
+                <input type="email" [ngClass]="[!signupForm.controls.email.value ? 'form-control' :!signupForm.controls.email.errors && !mailExist ? 'form-control is-valid': 'form-control is-invalid']" id="email" placeholder="Please Enter your Email" name="email" value=""
+                    formControlName="email" (change)="checkUserExist()">
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+                <div *ngIf="signupForm.controls.email.required" class="invalid-feedback">
+                    required
+                </div>
+                <div *ngIf="!signupForm.controls.email.pattern && !mailExist" class="invalid-feedback">
+                    Please Enter a Valid Email Adress
+                </div>
+                <div class="invalid-feedback" *ngIf="mailExist ">
+                    Mail Already Exist , Please Log in .
+                </div>
+            </div>
+
+        </div>
+        <div class="form-row">
+            <div class="col-md-12 ">
+                <label for="confirmEmail">Confirm Email *</label>
+                <input type="email" [ngClass]="[!signupForm.controls.confirmEmail.value ? 'form-control' : checkConfirm( signupForm.controls.email.value ,signupForm.controls.confirmEmail.value) ? 'form-control is-valid': 'form-control is-invalid']" id="confirmEmail"
+                    placeholder="Please Enter your Email confirmation" value="" name="confirmEmail" formControlName="confirmEmail">
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+                <div *ngIf="signupForm.controls.confirmEmail.required" class="invalid-feedback">
+                    required
+                </div>
+                <div class="invalid-feedback">
+                    Email Adress doesn't match
+                </div>
+            </div>
+
+        </div>
+        <div class="form-row">
+            <div class="col-md-12 ">
+                <label for="password">Password *</label>
+                <input type="password" [ngClass]="[!signupForm.controls.password.value ? 'form-control' :!signupForm.controls.password.errors ? 'form-control is-valid': 'form-control is-invalid']" id="password" placeholder="Please Enter your Password" value="" name="password"
+                    formControlName="password">
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+                <div *ngIf="signupForm.controls.password.required" class="invalid-feedback">
+                    required
+                </div>
+                <div *ngIf="!signupForm.controls.password.pattern" class="invalid-feedback">
+                    The password must has at least than 8 characters and must be a combination of charatacters , numbers ,at least one special character and at least a capital letter.
+                </div>
+            </div>
+
+        </div>
+        <div class="form-row">
+            <div class="col-md-12 ">
+                <label for="ConfirmPassword">Confirm Password *</label>
+                <input type="password" [ngClass]="[!signupForm.controls.confirmPassword.value ? 'form-control' :checkConfirm( signupForm.controls.password.value ,signupForm.controls.confirmPassword.value) ? 'form-control is-valid': 'form-control is-invalid']" id="ConfirmPassword"
+                    placeholder="Please Confirm your Password" value="" name="ConfirmPassword" formControlName="confirmPassword">
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+                <div *ngIf="signupForm.controls.confirmPassword.required" class="invalid-feedback">
+                    required
+                </div>
+                <div class="invalid-feedback">
+                    Password doesn't match
+                </div>
+            </div>
+
+        </div>
+
+        <button class="btn btn-primary" type="submit">Signup</button>
+    </form>
+    <button class="facebookLogin" (click)="signUpWithFB()"> Signup With Facebook </button>
+    <div *ngIf="fBmailExist" style="color : red">
+        Mail Already Exist , Please Log in .
+    </div>
+</div>

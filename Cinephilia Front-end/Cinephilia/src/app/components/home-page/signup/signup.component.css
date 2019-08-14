@@ -1,0 +1,43 @@
+h1 {
+    margin-top: 120px;
+    color: #a7222b;
+}
+
+.signup-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+form {
+    padding: 20px 50px 20px 50px;
+    width: 700px;
+    border: 1px solid white;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+form label {
+    color: white;
+    padding-top: 5px;
+}
+
+form button {
+    margin-top: 20px;
+}
+
+.facebookLogin {
+    margin-top: 50px;
+    width: 30%;
+    height: 50px;
+    border-radius: 10px;
+    background-color: #4267B2;
+    border: 1px solid #4267B2;
+    color: white;
+    text-align: center;
+}
+
+.facebookLogin:hover {
+    background-color: rgb(35, 87, 192);
+}
