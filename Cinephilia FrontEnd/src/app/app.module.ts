@@ -25,7 +25,11 @@ import {  FacebookLoginProvider } from "angularx-social-login";
 import { ToastrModule } from 'ngx-toastr';
 import { InterceptorService } from './services/interceptor.service';
 import { JwtModule } from '@auth0/angular-jwt';
-
+import { SettingsComponent } from './components/platform/settings/settings.component';
+import {ToastModule} from 'primeng/toast';
+import { AvatarModule } from 'ngx-avatar';
+import {DragDropModule} from 'primeng/dragdrop';
+import {ButtonModule} from 'primeng/button';
 let config = new AuthServiceConfig([
   
   {
@@ -57,7 +61,8 @@ export function tokenGetter() {
     SeriesComponent,
     CelebritiesComponent,
     FilterPipePipe,
-    
+    SettingsComponent,
+   
   ],
   imports: [
     BrowserModule,
@@ -68,6 +73,10 @@ export function tokenGetter() {
     ReactiveFormsModule,
     HttpClientModule ,
     CommonModule,
+    ToastModule,
+    AvatarModule,
+    DragDropModule,
+    ButtonModule,
     ToastrModule.forRoot(),
     SocialLoginModule ,JwtModule.forRoot({
       config: {
@@ -88,6 +97,7 @@ export function tokenGetter() {
     useClass: InterceptorService,
     multi: true
   }
+  
 ],
   bootstrap: [AppComponent]
 })

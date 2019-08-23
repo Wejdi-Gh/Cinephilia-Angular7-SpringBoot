@@ -1,0 +1,54 @@
+<div class="update-container">
+
+    <div class="update-menu">
+        <button class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    Update Menu
+  </button>
+        <div class="ui-g-12 ui-md-6 ui-g-nopad drag-column collapse" class="collapse" id="collapseExample">
+            <ul style="margin:0;padding:0" pDroppable="inversecars" (onDrop)="dropInvrse($event)">
+
+                <div *ngFor="let item of availableCars" class="ui-helper-clearfix" pDraggable="cars" (onDragStart)="dragStart($event,item)" (onDragEnd)="dragEnd($event)" style="margin-top: 10px;">
+
+
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">{{item.label}}</label>
+                        <input type={{item.type}} class="form-control" placeholder={{item.label}}>
+                    </div>
+
+                </div>
+
+
+            </ul>
+        </div>
+    </div>
+
+    <div class="ui-g">
+        <div class="avatar">
+
+            <ngx-avatar *ngIf="!this.image" size="150" name={{this.fullName}}></ngx-avatar>
+
+
+            <ngx-avatar *ngIf="this.image" src={{this.image}} size="150"></ngx-avatar>
+
+        </div>
+        <div class="form-group email-input">
+
+            <span type="text"> {{this.email}} </span>
+        </div>
+        <div class="ui-g-12 ui-md-6 drop-column" pDroppable="cars" (onDrop)="drop($event)" [ngClass]="{'ui-highlight-car':draggedCar}">
+            <div *ngFor="let item of selectedCars " class="ui-helper-clearfix" pDraggable="inversecars" (onDragStart)="dragStart($event,item)" (onDragEnd)="dragEnd($event)" style="margin-top: 10px;">
+
+                <div class="form-group">
+                    <label for="exampleInputPassword1">{{item.label}}</label>
+                    <input type={{item.type}} class="form-control" value={{item.value}} name={{item.name}} placeholder="Add New Password" (change)="onChange( $event , item )">
+                </div>
+
+            </div>
+        </div>
+
+        <button type=" button " class="btn btn-outline-secondary btn-lg " (click)="updateUser()"> Update </button>
+
+    </div>
+
+
+</div>

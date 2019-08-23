@@ -1,6 +1,7 @@
 package com.cinephilia.service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,5 +56,28 @@ public class UserService {
 		return userRepository.existsById(mail);
 	} 
 	
-	
+
+	public UserDTO updateUser (UserDTO userUpdated) {
+		if (userUpdated.getPassword().equals("")) {
+            String userPassword = getUserByEmail(userUpdated.getMail()).getPassword() ;
+			userUpdated.setPassword(userPassword);
+		}
+		else {userUpdated.setPassword(PasswordEncryption.encryptionPass(userUpdated.getPassword()));}
+		UserEntity user = ModelMapperConverter.convertToEntity(userUpdated, UserEntity.class) ;
+
+		UserEntity  updatedUserEntity =  userRepository.save(user) ;
+
+		return ModelMapperConverter.convertToDTO(updatedUserEntity,UserDTO.class);
+
+	}
+
+	public UserDTO  getUserByEmail(String email) {
+
+
+			UserEntity userEntitie =  userRepository.findById(email).get();
+
+
+			return ModelMapperConverter.convertToDTO(userEntitie, UserDTO.class);
+
+	}
 }

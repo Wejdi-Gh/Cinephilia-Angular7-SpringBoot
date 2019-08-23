@@ -104,13 +104,28 @@ if (this.loginForm.valid && this.mailExist) {
         timeOut: 3000
       });
     }
+  } , err => {
+
+if(err) {
+
+  this.toastr.error('Please check your pasword Or email', 'Credentials Error', {
+    enableHtml: true,
+    closeButton: true,
+    easing: 'ease-in',
+    progressBar: true,
+    timeOut: 3000
+  });
+
+}
+
+
   });
 
 
 }
 
 else {
-  this.toastr.warning('Please check your pasword and email', 'Warning', {
+  this.toastr.warning("Pasword and email can't be Empty", 'Warning', {
     enableHtml: true,
     closeButton: true,
     easing: 'ease-in',

@@ -9,6 +9,7 @@ import { MoviesComponent } from './components/platform/movies/movies.component';
 import { SeriesComponent } from './components/platform/series/series.component';
 import { CelebritiesComponent } from './components/platform/celebrities/celebrities.component';
 import { RoleGuardService } from './services/role-guard.service';
+import { SettingsComponent } from './components/platform/settings/settings.component';
 
 const routes: Routes = [
  { path: '', redirectTo: '/cinephilia', pathMatch: 'full' } ,
@@ -29,7 +30,8 @@ canActivate: [RoleGuardService] , data: {
 
   { path: 'movies', component: MoviesComponent },
   { path: 'series', component: SeriesComponent  },
-  { path: 'celebrities', component: CelebritiesComponent }
+  { path: 'celebrities', component: CelebritiesComponent },
+  { path: 'settings', component: SettingsComponent}
 ]
 
 } ,

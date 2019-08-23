@@ -35,6 +35,13 @@ checkUserExist (mail) {
 
 }
 
+updateUser(user:User) {
+
+  return this.http.post ('http://localhost:8080/user/update', user ,{observe: 'response' });
+
+
+}
+
 
 
 }

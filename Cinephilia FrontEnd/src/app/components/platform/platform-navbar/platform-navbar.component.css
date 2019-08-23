@@ -56,10 +56,15 @@
 
 .fa-sign-out-alt {
     cursor: pointer;
-    margin-right: 20px;
+    margin-right: 40px;
 }
 
-.fa-sign-out-alt:hover {
+.fa-user-circle {
+    cursor: pointer;
+}
+
+.fa-sign-out-alt:hover,
+.fa-user-circle:hover {
     color: rgba(255, 255, 0, 0.705);
 }
 
@@ -67,4 +72,13 @@
     width: 300px;
     display: flex;
     justify-content: center;
+}
+
+.logout-setting {
+    display: flex;
+    margin-right: 50px;
+}
+
+.avatar {
+    cursor: pointer;
 }

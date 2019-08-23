@@ -1,0 +1,48 @@
+<nav class="navbar navbar-expand-lg ">
+
+    <h1 class="glow"> CinePhilia </h1>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+  </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+
+            <a class="nav-item nav-link" routerLink="/platform/movies" routerLinkActive="active"> Movies</a>
+            <a class="nav-item nav-link" routerLink="/platform/series" routerLinkActive="active">Series</a>
+            <a class="nav-item nav-link" routerLink="/platform/celebrities" routerLinkActive="active">Celebrities</a>
+        </div>
+    </div>
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" (keyup)="onChange( $event.target.value)">
+    <div class="logout-setting">
+        <i class=" fas fa-sign-out-alt fa-1x" (click)="showConfirm()" style="text-align: center"> <p>Logout</p></i>
+
+        <div class="avatar">
+
+            <ngx-avatar *ngIf="!this.image" size="40" name={{this.fullName}} routerLink="/platform/settings" routerLinkActive="active"></ngx-avatar>
+
+
+            <ngx-avatar *ngIf="this.image" src={{this.image}} size="40" routerLink="/platform/settings" routerLinkActive="active"></ngx-avatar>
+
+        </div>
+
+    </div>
+</nav>
+
+<p-toast position="center" key="c" (onClose)="onReject()" [modal]="true" [baseZIndex]="5000">
+    <ng-template let-message pTemplate="message">
+        <div style="text-align: center">
+            <i class="pi pi-exclamation-triangle" style="font-size: 3em"></i>
+            <h3>{{message.summary}}</h3>
+            <p>{{message.detail}}</p>
+        </div>
+        <div class="ui-g ui-fluid">
+            <div class="ui-g-6">
+                <button type="button" pButton (click)="onConfirm()" label="Yes" class="ui-button-success"></button>
+            </div>
+            <div class="ui-g-6">
+                <button type="button" pButton (click)="onReject()" label="No" class="ui-button-secondary"></button>
+            </div>
+        </div>
+    </ng-template>
+</p-toast>

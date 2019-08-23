@@ -23,33 +23,30 @@ public class UserController {
 	@Autowired
 	
 	private UserService userService ;
-	
-	
+
 	@PostMapping(path = "/signup", produces = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody UserDTO createUser(@RequestBody UserDTO newUser) {
-
 		return userService.createUser(newUser);
-
 	}
-	
 	
 	@GetMapping(path = "/admin/users", produces = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody List <UserDTO> findAllUsersDtos () {
-
 		return userService.getAllUsers();
-
 	}
-	
-	
+
 	@GetMapping(path = "/signup/{mail}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody boolean checkUserExist (@PathVariable String mail) {
-
 		return userService.checkUserExist(mail);
-
 	}
-	
-	
-	
-	
+
+	@PostMapping(path = "/user/update", produces = MediaType.APPLICATION_JSON_VALUE)
+	public @ResponseBody UserDTO updateUser(@RequestBody UserDTO newUser) {
+		return userService.updateUser(newUser);
+	}
+
+	@GetMapping(path = "/user/{mail}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public @ResponseBody UserDTO  getUserByEmail (@PathVariable String mail) {
+		return userService.getUserByEmail(mail);
+	}
 
 }
