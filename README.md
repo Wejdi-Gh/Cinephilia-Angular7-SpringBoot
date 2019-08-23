@@ -7,7 +7,7 @@ CinePhilia : Une application Web payante qui propose des films, des séries tél
 
 Technologies Utilisées :
 
-* FrontEnd : Angular 7, Movie DB API , API REST,angularx-social-login, gx-toastr, ngular/router ,JWT authentication
+* FrontEnd : Angular 7, Movie DB API , API REST,angularx-social-login, gx-toastr, ngular/router ,JWT authentication , BootStrap ,material.angular , PrimeNG
 
 * BackEnd: SpringBoot  ,Spring Scurity , java/JEE , Spring DATA JPA, Hibernate ,JWT authentication
 
